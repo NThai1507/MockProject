@@ -1,0 +1,104 @@
+.filter {
+	padding: 20px 0;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.filter .control-label {
+	font-weight: normal;
+}
+
+.table-container .title {
+	text-align: center;
+	font-weight: bold;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+.table-bordered>thead {
+	background-color: #e7e7e7;
+}
+
+.table-custom {
+	width: 300px;
+	table-layout: fixed;
+	margin: auto;
+	border-collapse: collapse;
+}
+
+.table-custom th, .table-custom td {
+	padding: 5px;
+	text-align: left;
+}
+
+.tables thead {
+	display: block;
+	position: relative;
+	width: 100%
+}
+
+.tables tbody {
+	display: block;
+	overflow: auto;
+	width: 100%;
+	background-color: #f9f9f9;
+	min-height: 222px;
+	max-height: 222px;
+}
+
+.tables  th:first-child {
+	width: 100px;
+}
+
+.tables td:first-child {
+	width: 100px;
+}
+
+.tables th:nth-child(2) {
+	width: 200px;
+}
+
+.tables td:nth-child(2) {
+	width: 200px;
+}
+
+.off {
+	display: none;
+}
+
+.charts {
+	align-content: center;
+}
+
+.chart {
+	float: none;
+	overflow: hidden;
+	margin: auto;
+	margin: 0 auto;
+}
+
+.chart-items {
+	float: none;
+	margin: 0 auto;
+}
+@media (min-width: 576px) {
+  .width-400{
+	min-width:500px;
+}
+}
+
+@media (min-width: 768px) {
+  .container {
+    .width-400{
+	min-width:500px;
+}
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+  
+}
+
+@media (min-width: 1200px) {
+  
+}

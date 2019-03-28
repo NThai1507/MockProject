@@ -1,0 +1,106 @@
+.container {
+	overflow: auto;
+	padding: 20px 10px;
+	width: 100%;
+	font-size: 11px;
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+
+.title-name {
+	line-height: 40px;
+}
+
+.table-update {
+	overflow: auto;
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.table-update>thead {
+	border: 1px solid #cccccc;
+	background: #85C1E9;
+}
+
+.table-update>thead th {
+	overflow: hidden;
+}
+
+.table-update>tbody {
+	border: 1px solid #ccc
+}
+
+.table-update>tbody>tr>th {
+	border: 1px solid #ccc;
+	height: 25px;
+	font-size: 15px;
+	font-weight: normal;
+    font-family: aria;
+}
+
+.title-update {
+	overflow: auto;
+	border-collapse: collapse;
+	position: absolute;
+	height: 6vh;
+	display: inline-block;
+	overflow: auto;
+	line-height: 40px;
+	padding: 0px 10px;
+}
+
+.icon-collapse-expand {
+	width: 30px;
+	text-align: center;
+	font-size: 30px;
+	border-right: 1px solid #ccc;
+}
+
+* /
+
+
+.icon-add {
+	text-align: center;
+	font-size: 19px !important;
+}
+
+.icon-update {
+	/* width: 4%; */
+	text-align: center;
+	font-size: 19px;
+	/* border:1px solid #ccc000 */
+}
+
+.date-input>div {
+	width: 70%;
+	display: inline-block
+}
+
+.date-input>i {
+	display: inline-block;
+}
+
+/* th{
+    font-size: 15px;
+    font-weight: 100;
+    
+}
+
+th > span{
+    margin: 4px;
+    line-height: 30px;
+} */
+
+.border-none > th > div > input{
+	border:none
+}
+.border-none > th > input{
+	border:none
+}
+.border-none > th > select{
+	border:none;
+	padding:0px;
+}

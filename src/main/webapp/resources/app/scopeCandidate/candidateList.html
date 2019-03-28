@@ -1,0 +1,153 @@
+
+<div class="panel panel-default" id="candidate_list_container"
+	ng-controller="listCandidateController">
+	<div class="panel-heading">
+		<h3 class="panel-title" style="font-weight: normal;">Candidate
+			Listing</h3>
+	</div>
+	<div class="panel-body">
+		<div class="container-search">
+			<form>
+				<div class="row col-xs-12 col-sm-12 col-md-11 col-lg-11">
+					<div
+						class="div-element-search col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<label> Empl ID <cd-input
+								value="candidateInformationVo.candidateId"></cd-input>
+						</label>
+					</div>
+					<div 
+						class="div-element-search col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<label> Account <cd-input
+								value="candidateInformationVo.account"></cd-input>
+						</label>
+					</div>
+					<div
+						class="div-element-search col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<label> Name <cd-input
+								value="candidateInformationVo.fullName"></cd-input>
+						</label>
+					</div>
+
+				</div>
+				<div class="row col-xs-12 col-sm-12 col-md-11 col-lg-11">
+					<div
+						class="div-element-search col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<label> DOB <!-- <cd-input
+								value="candidateInformationVo.dateOfBirth"></cd-input> -->
+							<div class="input-directive">
+								<input type="text" class="form-control" cd-date-picker=""
+									ng-model="candidateInformationVo.dateOfBirth" />
+							</div>
+						</label>
+					</div>
+					<div
+						class="div-element-search col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<label> Phone <cd-input
+								value="candidateInformationVo.phone"></cd-input>
+						</label>
+					</div>
+					<div
+						class="div-element-search col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<label> Email <cd-input
+								value="candidateInformationVo.email"></cd-input>
+						</label>
+					</div>
+
+				</div>
+				<div
+					class="div-element-search-button col-xs-12 col-sm-6 col-md-1 col-lg-1">
+					<button type="submit" class="btn search-button" ng-click="search()">
+						<i class="fas fa-search"></i></i> Search
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="container-list">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th><input type="checkbox" name="checkAll"
+							ng-model="checkAlls" ng-true-value="true" ng-false-value="false" /></th>
+						<th>#</th>
+						<th>Empl ID</th>
+						<th>Account</th>
+						<th>Name</th>
+						<th>DOB</th>
+						<th>Gender</th>
+						<th>University</th>
+						<th>Faculty</th>
+						<th>Phone</th>
+						<th>Email</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in listCandidate" class="text-list">
+						<th><cd-check-box value="item" result="result"
+								check-all="checkAll"></th>
+						<th>{{ $index+1 }}</th>
+						<th><a href="#!/inpormationTab/{{item.candidateId}}">{{
+								item.candidateId }}</a></th>
+						<th>{{ item.account }}</th>
+						<th>{{ item.fullName }}</th>
+						<th>{{ item.dateOfBirth | date: 'dd-MM-yyyy'}}</th>
+						<th>{{ item.gender ==1? "Male":"Female" }}</th>
+						<th>{{ item.university.universityName }}</th>
+						<th>{{ item.faculty.facultyName }}</th>
+						<th>{{ item.phone }}</th>
+						<th>{{ item.email }}</th>
+						<th>{{ item.status }}</th>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+		<div class="container-paging row-1">
+			<div class="div-element-paging">
+				<label> Page Size <cd-selected value="sizePage"
+						after-select="candidateInformationVo.pageSizeResult"
+						attribute-name="pageSizeAtt"></cd-selected>
+				</label>
+			</div>
+			<div class="div-element-paging total-component">
+				<label> Show {{ (candidateInformationVo.pageSizeResult *
+					(page-1))+1 }} - {{ ((candidateInformationVo.pageSizeResult *
+					(page-1)))+(listCandidate.length) }} of total {{countTotal}} items
+					<cd-selected-dynamic value="itemPage"
+						after-select="resultSelectPage" attribute-name="pageSizeAtt"
+						page-now="{{page}}"></cd-selected-dynamic>
+
+				</label>
+			</div>
+
+			<div class="div-element-paging-element">
+				<ul class="pagination">
+					<li ng-click="padding(-1)"><a
+						ng-class=" page <=1 ? 'disable-click' : 'enable-click'"
+						class="background-colors">&laquo;</a></li>
+					<li><a href="">{{ page }}</a></li>
+					<li id="next" ng-click="padding(1)"><a
+						ng-class="page ==  itemPage.length?  'disable-click' : 'enable-click' "
+						class="background-colors" >&raquo;</a></li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="container-button">
+			<button type=button class="btn btn-default">
+				<a href="#!/create"><i class="fas fa-plus-circle"></i></span> New
+					Candidate</a>
+			</button>
+
+			<a ng-disabled="result.length >= 2"
+				href="#!/updateTab/{{result[0].candidateId}}"
+				class="btn btn-default"> <i class="fas fa-arrow-circle-up"></i></span>
+				Update Candidate
+			</a>
+
+			<button type="submit" class="btn btn-default" ng-click="show()">
+				<i class="fas fa-times-circle"></i> Delete Candidate
+			</button>
+		</div>
+	</div>
+</div>

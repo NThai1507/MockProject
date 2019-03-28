@@ -1,0 +1,9 @@
+<div class="div-checkbox-select">
+	 <div  ng-repeat="item in value">
+        <input  type="radio" class="cdRadioButton" name="cdRadioButton" value="{{item}}" >{{item[attributeName]}}
+    </div>
+    <div ng-show="attributeAddOther">
+    	<input  type="radio" class="cdRadioButton" name="cdRadioButton" value="other">other
+    </div>
+	<input ng-show="show == true" id="addValue" type="text" style="border:1px solid #c0c0c0 !important"/>
+</div>

@@ -1,0 +1,29 @@
+.input-directive{
+    padding: 0px;
+    
+    
+}
+cd-input{
+    border: 1px solid #cccccc !important;
+}
+.input-directive > input{
+    padding: 0px 4px;
+    border: 1px solid #cccccc;
+}
+.select-directive{
+    padding: 0px;
+}
+.select-directive > select{
+    padding: 0px;
+}
+.border{
+}
+
+.disable-click{
+    background-color: #c0c0c0 !important;
+    cursor: not-allowed;
+}
+.enable-click{
+	background-color: #c0c0c0 !important;
+    cursor: pointer;;
+}

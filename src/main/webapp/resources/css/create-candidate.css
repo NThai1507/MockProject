@@ -1,0 +1,154 @@
+ .create-edit .panel-body{
+    background: white;
+    
+}
+
+.errorTxt{
+  color: red;
+  min-height: 20px;
+  margin-bottom: 5px;
+}
+
+.create-edit .title{
+    margin-top: 0px;
+    border-bottom:1px solid #e7e7e7; 
+    padding-bottom: 7px;
+}
+
+.create-edit .table {
+    margin-bottom: 0%;
+    border: 1px solid #cccccc;
+    width: 97%;
+    margin-left: 2%;
+}
+
+.create-edit .tab-pane{
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding-top: 5px;  
+}
+.create-edit.tab-content {
+    padding:10px;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.create-edit .tab-content h4{
+    background: #85C1E9  ;
+    padding: 0.7%;
+    margin-bottom: 0%;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    width: 97%;
+    margin-left: 2%;
+}
+.create-edit .table #th{
+    background: #e7e7e7;
+}
+.create-edit .demo .disabled-data{
+    background:   #f8f8f8;
+    font-weight: normal;
+    line-height: 37px;
+}
+
+.create-edit .table tbody > tr > td{
+    background: white;
+     padding: 0 0 0 10px; 
+     margin: 0%;
+} 
+.create-edit .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {  
+    border: 1px solid #cccccc;  
+    border-collapse: collapse;  
+} 
+.create-edit .table #color{
+    /* background: #95BCF2; */
+    padding-top: 20px;
+    padding-bottom: 1px;
+}
+/* .create-edit .table #color1{
+    background: #95BCF2;
+} */
+
+.create-edit #message{
+    color: red;
+}
+
+.create-edit input{
+    border: none !important;
+    box-shadow: none !important; 
+
+    margin: 0;
+}
+
+
+.create-edit select{
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.create-edit .c-dropdown{
+    float: right;
+    padding-right: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.create-edit .dropdown-toggle{
+   background-color:  #e7e7e7;
+   border-color: #cccccc;
+}
+
+.create-edit .btn-ok, .btn-cancel{
+    width:35%;
+    padding: 2%;
+    margin: 5%;
+}
+
+
+
+.create-edit .file-upload{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+
+.create-edit .button-row{
+    margin-top: 1% ;
+    margin-left: 2%;
+    margin-bottom: 1%;
+} 
+
+
+ .create-edit .input-icon{
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 0.5em); 
+  }
+
+ .create-edit .input-wrapper{
+    position: relative;
+  }
+
+.create-edit  .drop-input{
+    margin: 2% ;
+}
+
+.create-edit .falcuty-input-textbox{
+    border: none;
+}
+
+.create-edit  .university-input-other-hidden{
+   visibility: hidden; 
+}
+
+.create-edit  .faculty-input-other-hidden{
+    visibility: hidden; 
+ }
+
+ .create-edit .general-value{
+    display: inline-block;
+    transform: translateY(50%);
+    padding-left: 12px;
+ }

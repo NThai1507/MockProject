@@ -1,0 +1,339 @@
+<div class="panel-body" ng-controller="createTabController">
+
+        <!-- Nav tabs -->
+        
+        <h3 class="title">Create Candidate</h3>
+        <hr>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="/#update-candidate" data-toggle="tab" aria-expanded="true" ng-click="showTitleCandidate = 'create-tab'">Cadidate
+                    Information</a>
+            </li>
+            <li class=""><a href="/#edit-mode" data-toggle="tab" aria-expanded="false" ng-click="showTitleCandidate = 'view-update-tab'">Result</a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- start information  -->
+            <!-- <div class="tab-pane fade in active" id="infor"> -->
+    
+            <!-- <div class="container create-edit " ng-controller="createController"> -->
+            <div class="tab-content create-edit tab-pane fade active in" id="update-candidate" >
+                <!-- <div class="tab-pane fade active in" > -->
+    					
+                <table class="table table-striped table-bordered table-hover demo table-top">
+                    <tbody>
+                        <tr>
+                            <h4>Personal Information</h4>
+                        </tr>
+                        <tr>
+                            <th class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="th">Empl ID</th>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 disabled-data" id="td" >{{profileId}} </td>
+                            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="th">Type</th>
+                            <td class="col-xs-3 col-sm-3 col-md-3 col-lg-3 disabled-data" id="td" >Candidate</td>
+                            <th class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="th">Status</th>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2 disabled-data" id="td" >New</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered table-hover demo table-bottom">
+                    <tbody>
+                        <tr>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="th">Application Date</th>
+                            <td class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="td">
+                                <div class="input-wrapper">
+                                    <input type="text" class="form-control" cd-date-picker="" ng-model="candidate.applicationDate" />
+                                    <label id="calendar-icon" class="fa fa-calendar input-icon" style="padding-left:5px;">
+    
+                                    </label>
+                                </div>
+                            </td>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="th">Channel *</th>
+                            <td class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="td">
+                                <span class="channel-value general-value">{{ candidate.channel.channelName }}</span>
+                                <div class="dropdown c-dropdown ">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                       
+                                        <cd-check-box-select value="channel" result="candidate.channel" attribute-name="channelName"></cd-check-box-select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="th">Site</th>
+                            <td id="td">
+                                <span class="site-value general-value">{{ candidate.location.locationName }}</span>
+                                <div class="dropdown c-dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <cd-check-box-select value="site" result="candidate.location" attribute-name="locationName" ></cd-check-box-select>
+                                    </div>
+                                </div>
+    
+                            </td>
+                            <th id="th">Account</th>
+                            <td id="td" class="disabled-data">
+                               {{ candidate.candidateProfile.account }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="th">Name *</th>
+                            <td id="td">
+                                <cd-input value="candidate.candidateProfile.fullName"></cd-input>
+                            </td>
+                            <th id="th">Gender *</th>
+                            <td id="td" style=" padding-top: 1.2%;">
+                               
+                                <cd-Radio value="listGender" after-check="candidate.candidateProfile.gender" attribute-name="name"></cd-Radio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="th">DOB *</th>
+                            <td id="td">
+                                <div class="input-wrapper">
+                                    <input type="text" class="form-control" cd-date-picker="" ng-model=" candidate.candidateProfile.dateOfBirth" />
+                                    <label id="calendar-icon" class="fa fa-calendar input-icon" style="padding-left:5px;">
+                                    </label>
+                                </div>
+                            </td>
+                            <th id="th">CV</th>
+                            <td id="td"> <input type="file" name="cv" style=" padding-top: 1.4%;" class="file-upload" id="file-upload"></td>
+                        </tr>
+                        <tr>
+                            <th id="th">University</th>
+                            <td id="td">
+                                <span class="general-value university-value">{{ candidate.candidateProfile.university.universityName }}</span>
+                                <div class="dropdown c-dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        
+                                        <cd-check-box-select value="university" result="candidate.candidateProfile.university" attribute-name="universityName" attribute-url="saveUniversity" attribute-add-function="true" attribute-add-other="'true'"></cd-check-box-select>
+                                    </div>
+                                </div>
+                            </td>
+                            <th id="th">Faculty</th>
+                            <td id="td">
+                                <span class="general-value faculty-value">{{ candidate.candidateProfile.faculty.facultyName }}</span>
+                                <div class="dropdown c-dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                       <cd-check-box-select value="faculty" result="candidate.candidateProfile.faculty" attribute-name="facultyName" attribute-url="saveFaculty" attribute-add-function="true" attribute-add-other="true"></cd-check-box-select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="th">Phone *</th>
+                            <td id="td">
+                                <cd-input value="candidate.candidateProfile.phone"></cd-input>
+                            </td>
+                            <th id="th">Email *</th>
+                            <td id="td">
+                                <cd-input value="candidate.candidateProfile.email"></cd-input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="th">Skill</th>
+                            <td id="td">
+                                <cd-input value="candidate.candidateProfile.skill"></cd-input>
+                            </td>
+                            <th id="th">Graduation Year</th>
+    
+                            <td id="td">
+                                <div class="input-wrapper">
+                                        <input type="text" class="form-control" cd-date-picker="" ng-model="candidate.candidateProfile.graduationYear" />
+                                    <label id="calendar-icon" class="fa fa-calendar input-icon" style="padding-left:5px;">
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="th">Foreign Language</th>
+                            <td id="td">
+                                <cd-input value="candidate.candidateProfile.foreignLanguage"></cd-input>
+                            </td>
+                            <th id="th">Level</th>
+                            <td id="td">
+                                <cd-input value="candidate.candidateProfile.levels"></cd-input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="th" class="col-xs-2
+                                            col-sm-2
+                                            col-md-2
+                                            col-lg-2
+                                            ">Note</th>
+                            <td id="td" class="col-xs-10
+                                            col-sm-10
+                                            col-md-10
+                                            col-lg-10 
+                                            "
+                                colspan="3">
+                                <cd-input value="candidate.candidateProfile.note"></cd-input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="th" class="col-xs-2
+                                            col-sm-2
+                                            col-md-2
+                                            col-lg-2">History
+                            </th>
+                            <td id="td" class="disabled-data col-xs-10 col-sm-10 col-md-10 col-lg-10" colspan="3">
+                                <p id="history" disabled=""><i class='fa fa-clock-o' style='font-size:25px; float: right; margin: 2px;'></i></p>
+                            </td>
+                        </tr>
+    
+    
+                    </tbody>
+    
+                </table>
+                <div class="button-row">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submitModal" id="btnOpenModal"
+                        ng-click="submit()">
+                        Submit</button>
+                    <button type="submit" class="btn btn-default close-btn" ng-click="show()">
+                        <i class="fa fa-reply" style="color:rgb(214, 13, 13)"></i> Close</button>
+                </div>
+                
+            </div>
+    
+    
+            <!-- end information -->
+    
+            
+    
+            <!-- start edit model-->
+    
+            <div id="edit-mode" class="panel-pane fade">
+                <!-- Nav tabs -->
+                <div class="container">
+                    <div>
+                        <table class=" table-update">
+                            <thead>
+                                <tr>
+                                    <th class="icon-collapse-expand" ng-click="showTableEntry = !showTableEntry"><i class="fas fa-caret-down"></i></th>
+                                    <th class="title-update">
+                                        <h3 class="title-name">entryTest</h3>
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="showTableEntry">
+    
+                                <tr>
+                                    <th class="icon-update" ng-click="candidate.entryTests.push({})"><i class="fas fa-plus-circle"></i></th>
+                                    <th>Time</th>
+                                    <th>Date</th>
+                                    <th>Language Valuator</th>
+                                    <th>Language Point</th>
+                                    <th>Technical Valuator</th>
+                                    <th>Technical Point</th>
+                                    <th>Result</th>
+                                </tr>
+                            </tbody>
+                            <tbody ng-show="showTableEntry">
+                                <tr ng-repeat="item in candidate.entryTests">
+                                    <th class="icon-update" ng-click="deleteEmtryTestById($index)"><i class="far fa-trash-alt"></i></th>
+                                    <th><cd-input value="item.time"></cd-input> </th>
+                                    <th class="date-input ">
+                                        <input type="text" class="form-control" cd-date-picker="" ng-model="item.testDate" />
+                                    </th>
+                                    <th>
+                                        <cd-input value="item.languageValuator"></cd-input>
+                                    </th>
+                                    <th>
+                                        <cd-input value="item.languageResult"></cd-input>
+                                    </th>
+                                    <th>
+                                        <cd-input value="item.technicalValuator"></cd-input>
+                                    </th>
+                                    <th>
+                                        <cd-input value="item.technicalPoint"></cd-input>
+                                    </th>
+                                    <th class="select-result">
+                                       <cd-selected value="listResult" after-select="item.result" attribute-name="resultName"></cd-selected>
+                                       
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+    
+                    </div>
+    
+                    <div>
+    
+                        <table class=" table-update">
+                            <thead>
+                                <tr>
+                                    <th class="icon-collapse-expand" ng-click="showTableInterview = !showTableInterview"><i
+                                            class="fas fa-caret-down"></i></th>
+                                    <th class="title-update">
+                                        <h3 class="title-name">Interview</h3>
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="showTableInterview">
+                                <tr>
+                                    <th class="icon-update" ng-click="candidate.interviews.push({})"><i class="fas fa-plus-circle"></i></th>
+                                    <th>Time</th>
+                                    <th>Date</th>
+                                    <th>Interviewr</th>
+                                    <th style="width:41%">Comment</th>
+                                    <th>Result</th>
+                                </tr>
+                            </tbody>
+                            <tbody ng-show="showTableInterview">
+                                <tr ng-repeat="item in candidate.interviews">
+                                    <th class="icon-update" ng-click="deleteInterview($index, item.interviewId)"><i class="far fa-trash-alt"></i></th>
+                                    <th><cd-input value="item.time"></cd-input></th>
+                                    <th class="date-input">
+                                        <input type="text" class="form-control" cd-date-picker="" ng-model="item.date" />
+                                    </th>
+                                    <th>
+                                        <cd-input value="item.interviewer"></cd-input>
+                                    </th>
+                                    <th style="width:50%">
+                                        <cd-input value="item.comments"></cd-input>
+                                    </th>
+                                    <th class="select-result">
+                                        <!-- <cd-selected value="item.result" after-select="defaultResult"></cd-selected> -->
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                       
+                    </div>
+     
+                    <div class="button-update">
+    
+                        <button type="button" class="btn btn-primary">
+                            Submit
+                        </button>
+                        <button type="button" class="btn btn-default close-btn" >
+                            <i class="fas fa-reply"></i></span> Close
+                        </button>
+    
+                    </div>
+    
+                </div>
+            </div>
+    
+            <!-- end -->
+    
+        </div>
+        
+    </div>
+    
