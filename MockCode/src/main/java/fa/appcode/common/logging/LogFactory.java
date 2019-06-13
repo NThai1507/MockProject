@@ -9,6 +9,8 @@ public class LogFactory {
    * 
    * @return logger
    */
+	
+	
   public static Logger getlogger() {
     Logger logger = Logger
         .getLogger(Thread.currentThread().getStackTrace()[2].getMethodName());
